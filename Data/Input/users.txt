@@ -1,0 +1,1398 @@
+108
+ADMIN
+Nguyen Quan Tri
+01/01/1980
+Ha Noi
+admin
+admin@school.edu.vn
+Nam
+admin123
+AD001
+GVCN
+Giao Vien 10A1
+02/09/1990
+Khu Tap The GV
+gv001
+gv001@school.edu.vn
+Nu
+123456
+GV001
+10A1
+Toan
+Cu Nhan
+5
+10000000
+GVCN
+Giao Vien 10A2
+02/09/1990
+Khu Tap The GV
+gv002
+gv002@school.edu.vn
+Nam
+123456
+GV002
+10A2
+Vat Ly
+Cu Nhan
+6
+10500000
+GVCN
+Giao Vien 10A3
+02/09/1990
+Khu Tap The GV
+gv003
+gv003@school.edu.vn
+Nu
+123456
+GV003
+10A3
+Hoa Hoc
+Cu Nhan
+7
+11000000
+GVCN
+Giao Vien 10A4
+02/09/1990
+Khu Tap The GV
+gv004
+gv004@school.edu.vn
+Nam
+123456
+GV004
+10A4
+Ngu Van
+Cu Nhan
+8
+11500000
+GVCN
+Giao Vien 10A5
+02/09/1990
+Khu Tap The GV
+gv005
+gv005@school.edu.vn
+Nu
+123456
+GV005
+10A5
+Tieng Anh
+Cu Nhan
+9
+12000000
+THUTHU
+Thu Thu 1
+15/05/1995
+Thu Vien Thanh Pho
+tt001
+tt001@school.edu.vn
+Nu
+123456
+TT001
+THUTHU
+Thu Thu 2
+15/05/1995
+Thu Vien Thanh Pho
+tt002
+tt002@school.edu.vn
+Nu
+123456
+TT002
+HOCSINH
+Hoc Sinh 001
+01/01/2008
+Xa 1, Huyen X
+hs001
+hs001@school.edu.vn
+Nam
+123456
+HS001
+10A1
+7.5
+80.0
+0
+HOCSINH
+Hoc Sinh 002
+01/01/2008
+Xa 2, Huyen X
+hs002
+hs002@school.edu.vn
+Nu
+123456
+HS002
+10A1
+8.2
+85.0
+0
+HOCSINH
+Hoc Sinh 003
+01/01/2008
+Xa 3, Huyen X
+hs003
+hs003@school.edu.vn
+Nam
+123456
+HS003
+10A1
+6.8
+75.0
+0
+HOCSINH
+Hoc Sinh 004
+01/01/2008
+Xa 4, Huyen X
+hs004
+hs004@school.edu.vn
+Nu
+123456
+HS004
+10A1
+9.0
+90.0
+0
+HOCSINH
+Hoc Sinh 005
+01/01/2008
+Xa 5, Huyen X
+hs005
+hs005@school.edu.vn
+Nam
+123456
+HS005
+10A1
+7.1
+78.0
+0
+HOCSINH
+Hoc Sinh 006
+01/01/2008
+Xa 6, Huyen X
+hs006
+hs006@school.edu.vn
+Nu
+123456
+HS006
+10A1
+8.5
+88.0
+0
+HOCSINH
+Hoc Sinh 007
+01/01/2008
+Xa 7, Huyen X
+hs007
+hs007@school.edu.vn
+Nam
+123456
+HS007
+10A1
+6.5
+70.0
+0
+HOCSINH
+Hoc Sinh 008
+01/01/2008
+Xa 8, Huyen X
+hs008
+hs008@school.edu.vn
+Nu
+123456
+HS008
+10A1
+9.2
+92.0
+0
+HOCSINH
+Hoc Sinh 009
+01/01/2008
+Xa 9, Huyen X
+hs009
+hs009@school.edu.vn
+Nam
+123456
+HS009
+10A1
+7.8
+82.0
+0
+HOCSINH
+Hoc Sinh 010
+01/01/2008
+Xa 10, Huyen X
+hs010
+hs010@school.edu.vn
+Nu
+123456
+HS010
+10A1
+8.0
+85.0
+0
+HOCSINH
+Hoc Sinh 011
+01/01/2008
+Xa 1, Huyen X
+hs011
+hs011@school.edu.vn
+Nam
+123456
+HS011
+10A1
+6.9
+72.0
+0
+HOCSINH
+Hoc Sinh 012
+01/01/2008
+Xa 2, Huyen X
+hs012
+hs012@school.edu.vn
+Nu
+123456
+HS012
+10A1
+8.8
+89.0
+0
+HOCSINH
+Hoc Sinh 013
+01/01/2008
+Xa 3, Huyen X
+hs013
+hs013@school.edu.vn
+Nam
+123456
+HS013
+10A1
+7.3
+79.0
+0
+HOCSINH
+Hoc Sinh 014
+01/01/2008
+Xa 4, Huyen X
+hs014
+hs014@school.edu.vn
+Nu
+123456
+HS014
+10A1
+9.5
+95.0
+0
+HOCSINH
+Hoc Sinh 015
+01/01/2008
+Xa 5, Huyen X
+hs015
+hs015@school.edu.vn
+Nam
+123456
+HS015
+10A1
+6.0
+65.0
+0
+HOCSINH
+Hoc Sinh 016
+01/01/2008
+Xa 6, Huyen X
+hs016
+hs016@school.edu.vn
+Nu
+123456
+HS016
+10A1
+8.3
+86.0
+0
+HOCSINH
+Hoc Sinh 017
+01/01/2008
+Xa 7, Huyen X
+hs017
+hs017@school.edu.vn
+Nam
+123456
+HS017
+10A1
+7.6
+81.0
+0
+HOCSINH
+Hoc Sinh 018
+01/01/2008
+Xa 8, Huyen X
+hs018
+hs018@school.edu.vn
+Nu
+123456
+HS018
+10A1
+9.1
+91.0
+0
+HOCSINH
+Hoc Sinh 019
+01/01/2008
+Xa 9, Huyen X
+hs019
+hs019@school.edu.vn
+Nam
+123456
+HS019
+10A1
+6.7
+74.0
+0
+HOCSINH
+Hoc Sinh 020
+01/01/2008
+Xa 10, Huyen X
+hs020
+hs020@school.edu.vn
+Nu
+123456
+HS020
+10A1
+8.6
+87.0
+0
+HOCSINH
+Hoc Sinh 021
+01/01/2008
+Xa 1, Huyen X
+hs021
+hs021@school.edu.vn
+Nam
+123456
+HS021
+10A2
+7.2
+77.0
+0
+HOCSINH
+Hoc Sinh 022
+01/01/2008
+Xa 2, Huyen X
+hs022
+hs022@school.edu.vn
+Nu
+123456
+HS022
+10A2
+8.4
+84.0
+0
+HOCSINH
+Hoc Sinh 023
+01/01/2008
+Xa 3, Huyen X
+hs023
+hs023@school.edu.vn
+Nam
+123456
+HS023
+10A2
+6.6
+71.0
+0
+HOCSINH
+Hoc Sinh 024
+01/01/2008
+Xa 4, Huyen X
+hs024
+hs024@school.edu.vn
+Nu
+123456
+HS024
+10A2
+9.3
+93.0
+0
+HOCSINH
+Hoc Sinh 025
+01/01/2008
+Xa 5, Huyen X
+hs025
+hs025@school.edu.vn
+Nam
+123456
+HS025
+10A2
+7.0
+76.0
+0
+HOCSINH
+Hoc Sinh 026
+01/01/2008
+Xa 6, Huyen X
+hs026
+hs026@school.edu.vn
+Nu
+123456
+HS026
+10A2
+8.1
+83.0
+0
+HOCSINH
+Hoc Sinh 027
+01/01/2008
+Xa 7, Huyen X
+hs027
+hs027@school.edu.vn
+Nam
+123456
+HS027
+10A2
+6.4
+68.0
+0
+HOCSINH
+Hoc Sinh 028
+01/01/2008
+Xa 8, Huyen X
+hs028
+hs028@school.edu.vn
+Nu
+123456
+HS028
+10A2
+9.4
+94.0
+0
+HOCSINH
+Hoc Sinh 029
+01/01/2008
+Xa 9, Huyen X
+hs029
+hs029@school.edu.vn
+Nam
+123456
+HS029
+10A2
+7.7
+80.0
+0
+HOCSINH
+Hoc Sinh 030
+01/01/2008
+Xa 10, Huyen X
+hs030
+hs030@school.edu.vn
+Nu
+123456
+HS030
+10A2
+8.7
+88.0
+0
+HOCSINH
+Hoc Sinh 031
+01/01/2008
+Xa 1, Huyen X
+hs031
+hs031@school.edu.vn
+Nam
+123456
+HS031
+10A2
+6.3
+67.0
+0
+HOCSINH
+Hoc Sinh 032
+01/01/2008
+Xa 2, Huyen X
+hs032
+hs032@school.edu.vn
+Nu
+123456
+HS032
+10A2
+8.9
+91.0
+0
+HOCSINH
+Hoc Sinh 033
+01/01/2008
+Xa 3, Huyen X
+hs033
+hs033@school.edu.vn
+Nam
+123456
+HS033
+10A2
+7.4
+78.0
+0
+HOCSINH
+Hoc Sinh 034
+01/01/2008
+Xa 4, Huyen X
+hs034
+hs034@school.edu.vn
+Nu
+123456
+HS034
+10A2
+9.6
+96.0
+0
+HOCSINH
+Hoc Sinh 035
+01/01/2008
+Xa 5, Huyen X
+hs035
+hs035@school.edu.vn
+Nam
+123456
+HS035
+10A2
+6.1
+64.0
+0
+HOCSINH
+Hoc Sinh 036
+01/01/2008
+Xa 6, Huyen X
+hs036
+hs036@school.edu.vn
+Nu
+123456
+HS036
+10A2
+8.2
+84.0
+0
+HOCSINH
+Hoc Sinh 037
+01/01/2008
+Xa 7, Huyen X
+hs037
+hs037@school.edu.vn
+Nam
+123456
+HS037
+10A2
+7.5
+79.0
+0
+HOCSINH
+Hoc Sinh 038
+01/01/2008
+Xa 8, Huyen X
+hs038
+hs038@school.edu.vn
+Nu
+123456
+HS038
+10A2
+9.0
+90.0
+0
+HOCSINH
+Hoc Sinh 039
+01/01/2008
+Xa 9, Huyen X
+hs039
+hs039@school.edu.vn
+Nam
+123456
+HS039
+10A2
+6.8
+73.0
+0
+HOCSINH
+Hoc Sinh 040
+01/01/2008
+Xa 10, Huyen X
+hs040
+hs040@school.edu.vn
+Nu
+123456
+HS040
+10A2
+8.5
+86.0
+0
+HOCSINH
+Hoc Sinh 041
+01/01/2008
+Xa 1, Huyen X
+hs041
+hs041@school.edu.vn
+Nam
+123456
+HS041
+10A3
+7.4
+78.0
+0
+HOCSINH
+Hoc Sinh 042
+01/01/2008
+Xa 2, Huyen X
+hs042
+hs042@school.edu.vn
+Nu
+123456
+HS042
+10A3
+8.6
+87.0
+0
+HOCSINH
+Hoc Sinh 043
+01/01/2008
+Xa 3, Huyen X
+hs043
+hs043@school.edu.vn
+Nam
+123456
+HS043
+10A3
+6.7
+72.0
+0
+HOCSINH
+Hoc Sinh 044
+01/01/2008
+Xa 4, Huyen X
+hs044
+hs044@school.edu.vn
+Nu
+123456
+HS044
+10A3
+9.1
+92.0
+0
+HOCSINH
+Hoc Sinh 045
+01/01/2008
+Xa 5, Huyen X
+hs045
+hs045@school.edu.vn
+Nam
+123456
+HS045
+10A3
+7.2
+76.0
+0
+HOCSINH
+Hoc Sinh 046
+01/01/2008
+Xa 6, Huyen X
+hs046
+hs046@school.edu.vn
+Nu
+123456
+HS046
+10A3
+8.3
+85.0
+0
+HOCSINH
+Hoc Sinh 047
+01/01/2008
+Xa 7, Huyen X
+hs047
+hs047@school.edu.vn
+Nam
+123456
+HS047
+10A3
+6.5
+69.0
+0
+HOCSINH
+Hoc Sinh 048
+01/01/2008
+Xa 8, Huyen X
+hs048
+hs048@school.edu.vn
+Nu
+123456
+HS048
+10A3
+9.3
+94.0
+0
+HOCSINH
+Hoc Sinh 049
+01/01/2008
+Xa 9, Huyen X
+hs049
+hs049@school.edu.vn
+Nam
+123456
+HS049
+10A3
+7.8
+81.0
+0
+HOCSINH
+Hoc Sinh 050
+01/01/2008
+Xa 10, Huyen X
+hs050
+hs050@school.edu.vn
+Nu
+123456
+HS050
+10A3
+8.1
+83.0
+0
+HOCSINH
+Hoc Sinh 051
+01/01/2008
+Xa 1, Huyen X
+hs051
+hs051@school.edu.vn
+Nam
+123456
+HS051
+10A3
+6.8
+71.0
+0
+HOCSINH
+Hoc Sinh 052
+01/01/2008
+Xa 2, Huyen X
+hs052
+hs052@school.edu.vn
+Nu
+123456
+HS052
+10A3
+8.7
+89.0
+0
+HOCSINH
+Hoc Sinh 053
+01/01/2008
+Xa 3, Huyen X
+hs053
+hs053@school.edu.vn
+Nam
+123456
+HS053
+10A3
+7.1
+77.0
+0
+HOCSINH
+Hoc Sinh 054
+01/01/2008
+Xa 4, Huyen X
+hs054
+hs054@school.edu.vn
+Nu
+123456
+HS054
+10A3
+9.5
+96.0
+0
+HOCSINH
+Hoc Sinh 055
+01/01/2008
+Xa 5, Huyen X
+hs055
+hs055@school.edu.vn
+Nam
+123456
+HS055
+10A3
+6.2
+66.0
+0
+HOCSINH
+Hoc Sinh 056
+01/01/2008
+Xa 6, Huyen X
+hs056
+hs056@school.edu.vn
+Nu
+123456
+HS056
+10A3
+8.4
+86.0
+0
+HOCSINH
+Hoc Sinh 057
+01/01/2008
+Xa 7, Huyen X
+hs057
+hs057@school.edu.vn
+Nam
+123456
+HS057
+10A3
+7.6
+80.0
+0
+HOCSINH
+Hoc Sinh 058
+01/01/2008
+Xa 8, Huyen X
+hs058
+hs058@school.edu.vn
+Nu
+123456
+HS058
+10A3
+9.0
+91.0
+0
+HOCSINH
+Hoc Sinh 059
+01/01/2008
+Xa 9, Huyen X
+hs059
+hs059@school.edu.vn
+Nam
+123456
+HS059
+10A3
+6.9
+74.0
+0
+HOCSINH
+Hoc Sinh 060
+01/01/2008
+Xa 10, Huyen X
+hs060
+hs060@school.edu.vn
+Nu
+123456
+HS060
+10A3
+8.5
+87.0
+0
+HOCSINH
+Hoc Sinh 061
+01/01/2008
+Xa 1, Huyen X
+hs061
+hs061@school.edu.vn
+Nam
+123456
+HS061
+10A4
+7.6
+80.0
+0
+HOCSINH
+Hoc Sinh 062
+01/01/2008
+Xa 2, Huyen X
+hs062
+hs062@school.edu.vn
+Nu
+123456
+HS062
+10A4
+8.8
+89.0
+0
+HOCSINH
+Hoc Sinh 063
+01/01/2008
+Xa 3, Huyen X
+hs063
+hs063@school.edu.vn
+Nam
+123456
+HS063
+10A4
+6.9
+74.0
+0
+HOCSINH
+Hoc Sinh 064
+01/01/2008
+Xa 4, Huyen X
+hs064
+hs064@school.edu.vn
+Nu
+123456
+HS064
+10A4
+9.2
+93.0
+0
+HOCSINH
+Hoc Sinh 065
+01/01/2008
+Xa 5, Huyen X
+hs065
+hs065@school.edu.vn
+Nam
+123456
+HS065
+10A4
+7.3
+77.0
+0
+HOCSINH
+Hoc Sinh 066
+01/01/2008
+Xa 6, Huyen X
+hs066
+hs066@school.edu.vn
+Nu
+123456
+HS066
+10A4
+8.4
+86.0
+0
+HOCSINH
+Hoc Sinh 067
+01/01/2008
+Xa 7, Huyen X
+hs067
+hs067@school.edu.vn
+Nam
+123456
+HS067
+10A4
+6.6
+69.0
+0
+HOCSINH
+Hoc Sinh 068
+01/01/2008
+Xa 8, Huyen X
+hs068
+hs068@school.edu.vn
+Nu
+123456
+HS068
+10A4
+9.4
+95.0
+0
+HOCSINH
+Hoc Sinh 069
+01/01/2008
+Xa 9, Huyen X
+hs069
+hs069@school.edu.vn
+Nam
+123456
+HS069
+10A4
+7.9
+82.0
+0
+HOCSINH
+Hoc Sinh 070
+01/01/2008
+Xa 10, Huyen X
+hs070
+hs070@school.edu.vn
+Nu
+123456
+HS070
+10A4
+8.2
+84.0
+0
+HOCSINH
+Hoc Sinh 071
+01/01/2008
+Xa 1, Huyen X
+hs071
+hs071@school.edu.vn
+Nam
+123456
+HS071
+10A4
+7.0
+73.0
+0
+HOCSINH
+Hoc Sinh 072
+01/01/2008
+Xa 2, Huyen X
+hs072
+hs072@school.edu.vn
+Nu
+123456
+HS072
+10A4
+8.9
+91.0
+0
+HOCSINH
+Hoc Sinh 073
+01/01/2008
+Xa 3, Huyen X
+hs073
+hs073@school.edu.vn
+Nam
+123456
+HS073
+10A4
+7.4
+78.0
+0
+HOCSINH
+Hoc Sinh 074
+01/01/2008
+Xa 4, Huyen X
+hs074
+hs074@school.edu.vn
+Nu
+123456
+HS074
+10A4
+9.6
+96.0
+0
+HOCSINH
+Hoc Sinh 075
+01/01/2008
+Xa 5, Huyen X
+hs075
+hs075@school.edu.vn
+Nam
+123456
+HS075
+10A4
+6.3
+66.0
+0
+HOCSINH
+Hoc Sinh 076
+01/01/2008
+Xa 6, Huyen X
+hs076
+hs076@school.edu.vn
+Nu
+123456
+HS076
+10A4
+8.6
+88.0
+0
+HOCSINH
+Hoc Sinh 077
+01/01/2008
+Xa 7, Huyen X
+hs077
+hs077@school.edu.vn
+Nam
+123456
+HS077
+10A4
+7.7
+81.0
+0
+HOCSINH
+Hoc Sinh 078
+01/01/2008
+Xa 8, Huyen X
+hs078
+hs078@school.edu.vn
+Nu
+123456
+HS078
+10A4
+9.1
+92.0
+0
+HOCSINH
+Hoc Sinh 079
+01/01/2008
+Xa 9, Huyen X
+hs079
+hs079@school.edu.vn
+Nam
+123456
+HS079
+10A4
+7.1
+75.0
+0
+HOCSINH
+Hoc Sinh 080
+01/01/2008
+Xa 10, Huyen X
+hs080
+hs080@school.edu.vn
+Nu
+123456
+HS080
+10A4
+8.7
+89.0
+0
+HOCSINH
+Hoc Sinh 081
+01/01/2008
+Xa 1, Huyen X
+hs081
+hs081@school.edu.vn
+Nam
+123456
+HS081
+10A5
+7.8
+82.0
+0
+HOCSINH
+Hoc Sinh 082
+01/01/2008
+Xa 2, Huyen X
+hs082
+hs082@school.edu.vn
+Nu
+123456
+HS082
+10A5
+8.9
+90.0
+0
+HOCSINH
+Hoc Sinh 083
+01/01/2008
+Xa 3, Huyen X
+hs083
+hs083@school.edu.vn
+Nam
+123456
+HS083
+10A5
+7.1
+75.0
+0
+HOCSINH
+Hoc Sinh 084
+01/01/2008
+Xa 4, Huyen X
+hs084
+hs084@school.edu.vn
+Nu
+123456
+HS084
+10A5
+9.3
+94.0
+0
+HOCSINH
+Hoc Sinh 085
+01/01/2008
+Xa 5, Huyen X
+hs085
+hs085@school.edu.vn
+Nam
+123456
+HS085
+10A5
+7.5
+78.0
+0
+HOCSINH
+Hoc Sinh 086
+01/01/2008
+Xa 6, Huyen X
+hs086
+hs086@school.edu.vn
+Nu
+123456
+HS086
+10A5
+8.5
+87.0
+0
+HOCSINH
+Hoc Sinh 087
+01/01/2008
+Xa 7, Huyen X
+hs087
+hs087@school.edu.vn
+Nam
+123456
+HS087
+10A5
+6.8
+70.0
+0
+HOCSINH
+Hoc Sinh 088
+01/01/2008
+Xa 8, Huyen X
+hs088
+hs088@school.edu.vn
+Nu
+123456
+HS088
+10A5
+9.5
+96.0
+0
+HOCSINH
+Hoc Sinh 089
+01/01/2008
+Xa 9, Huyen X
+hs089
+hs089@school.edu.vn
+Nam
+123456
+HS089
+10A5
+8.0
+83.0
+0
+HOCSINH
+Hoc Sinh 090
+01/01/2008
+Xa 10, Huyen X
+hs090
+hs090@school.edu.vn
+Nu
+123456
+HS090
+10A5
+8.4
+85.0
+0
+HOCSINH
+Hoc Sinh 091
+01/01/2008
+Xa 1, Huyen X
+hs091
+hs091@school.edu.vn
+Nam
+123456
+HS091
+10A5
+7.2
+74.0
+0
+HOCSINH
+Hoc Sinh 092
+01/01/2008
+Xa 2, Huyen X
+hs092
+hs092@school.edu.vn
+Nu
+123456
+HS092
+10A5
+9.0
+92.0
+0
+HOCSINH
+Hoc Sinh 093
+01/01/2008
+Xa 3, Huyen X
+hs093
+hs093@school.edu.vn
+Nam
+123456
+HS093
+10A5
+7.6
+79.0
+0
+HOCSINH
+Hoc Sinh 094
+01/01/2008
+Xa 4, Huyen X
+hs094
+hs094@school.edu.vn
+Nu
+123456
+HS094
+10A5
+9.7
+97.0
+0
+HOCSINH
+Hoc Sinh 095
+01/01/2008
+Xa 5, Huyen X
+hs095
+hs095@school.edu.vn
+Nam
+123456
+HS095
+10A5
+6.5
+67.0
+0
+HOCSINH
+Hoc Sinh 096
+01/01/2008
+Xa 6, Huyen X
+hs096
+hs096@school.edu.vn
+Nu
+123456
+HS096
+10A5
+8.7
+89.0
+0
+HOCSINH
+Hoc Sinh 097
+01/01/2008
+Xa 7, Huyen X
+hs097
+hs097@school.edu.vn
+Nam
+123456
+HS097
+10A5
+7.8
+81.0
+0
+HOCSINH
+Hoc Sinh 098
+01/01/2008
+Xa 8, Huyen X
+hs098
+hs098@school.edu.vn
+Nu
+123456
+HS098
+10A5
+9.2
+93.0
+0
+HOCSINH
+Hoc Sinh 099
+01/01/2008
+Xa 9, Huyen X
+hs099
+hs099@school.edu.vn
+Nam
+123456
+HS099
+10A5
+7.3
+76.0
+0
+HOCSINH
+Hoc Sinh 100
+01/01/2008
+Xa 10, Huyen X
+hs100
+hs100@school.edu.vn
+Nu
+123456
+HS100
+10A5
+8.8
+90.0
+0
