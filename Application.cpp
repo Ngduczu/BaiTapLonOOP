@@ -50,6 +50,7 @@ private:
     void HS_XemThongTinBanThan();
     void HS_SuaThongTinBanThan();
     void HS_XemDanhSachSachTrongThuVien();
+    void HS_DoiMatKhau();
     void HS_MuonSach();
     void HS_TraSach(); // [UPDATE] Thêm hàm này
 
@@ -463,10 +464,11 @@ void Application::showHocSinhMenu()
     cout << "1. Xem thong tin ca nhan" << endl;
     cout << "2. Sua thong tin ca nhan" << endl;
     cout << "3. Xem danh sach sach trong thu vien" << endl;
-    cout << "4. Muon sach" << endl;
-    cout << "5. Tra sach" << endl; // [UPDATE]
-    cout << "6. Xem sach dang muon" << endl;
-    cout << "0. Dang xuat" << endl;
+    cout << "4. Doi mat khau" << endl;
+    cout << "5. Muon sach" << endl;
+    cout << "6. Tra sach" << endl; // [UPDATE]
+    cout << "7. Xem sach dang muon" << endl;
+    cout << "8. Dang xuat" << endl;
     cout << "\nChon chuc nang: ";
     char choice;
     cin >> choice;
@@ -492,16 +494,19 @@ void Application::showHocSinhMenu()
         HS_XemDanhSachSachTrongThuVien();
         break;
     case '4':
-        HS_MuonSach();
+        HS_DoiMatKhau();
         break;
     case '5':
-        HS_TraSach(); // [UPDATE]
+        HS_MuonSach();
         break;
     case '6':
+        HS_TraSach();
+        break;
+    case '7':
         hs->xemDanhSachMuon();
         pauseExecution();
         break;
-    case '0':
+    case '8':
         logout();
         break;
     default:
@@ -1039,7 +1044,7 @@ void Application::GVCN_SuaThongTinHocSinh()
     hs_found->displayInfo();
     
     cout << "\n--- NHAP THONG TIN MOI (Nhan Enter de bo qua) ---" << endl;
-    string ten, ns, dc, email, gt, lop;
+    string ten, ns, dc, email, gt;
 
     cout << "Ho Ten (" << hs_found->getHoTen() << "): ";
     getline(cin, ten);
@@ -1051,11 +1056,8 @@ void Application::GVCN_SuaThongTinHocSinh()
     getline(cin, email);
     cout << "Gioi Tinh (" << hs_found->getGioiTinh() << "): ";
     getline(cin, gt);
-    cout << "Lop (" << hs_found->getLop() << "): ";
-    getline(cin, lop);
 
     hs_found->setThongTinCoBan(ten, ns, dc, email, gt);
-    if(!lop.empty()) hs_found->setLop(lop);
     
     cout << "\nCap nhat thong tin hoc sinh thanh cong!" << endl;
     saveData();
@@ -1076,7 +1078,7 @@ void Application::GVCN_SuaThongTinBanThan()
     
     string ten, ns, dc, email, gt;
     cout << "Ho Ten (" << gvcn->getHoTen() << "): "; 
-    getline(cin >> ws, ten);
+    getline(cin, ten);
     cout << "Ngay Sinh (" << gvcn->getNgayThangNamSinh() << "): "; 
     getline(cin, ns);
     cout << "Dia Chi (" << gvcn->getDiaChi() << "): "; 
@@ -1169,7 +1171,7 @@ void Application::HS_SuaThongTinBanThan()
     string ns, dc, gt;
 
     cout << "Luu y: De trong de bo qua, giu lai gia tri cu.\n";
-    cout << "Ngay Sinh hien tai: " << hs->getNgayThangNamSinh() << "\nNhap Ngay Sinh moi: ";
+    cout << "Ngay Sinh hien tai: " << hs->getNgayThangNamSinh() << "\nNhap Ngay Sinh moi (NGAY/THANG/NAM): ";
     getline(cin, ns);
     cout << "Dia Chi hien tai: " << hs->getDiaChi() << "\nNhap Dia Chi moi: ";
     getline(cin, dc);
@@ -1231,7 +1233,7 @@ void Application::HS_MuonSach(){
     }
     else
     {
-        if(!hs->DaMuonSach(idSach)) {
+        if(hs->DaMuonSach(idSach)) {
             cout << "Loi: Ban da muon sach nay truoc do. Vui long khong muon lai." << endl;
             pauseExecution();
             return;
@@ -1291,6 +1293,44 @@ void Application::HS_TraSach() {
     pauseExecution();
 }
 
+void Application::HS_DoiMatKhau()
+{
+    HocSinh *hs = dynamic_cast<HocSinh *>(currentUser);
+    if (!hs)
+        return;
+
+    printHeader("DOI MAT KHAU TAI KHOAN");
+    string matKhauCu;
+    cout << "Nhap mat khau hien tai: ";
+    getline(cin >> ws, matKhauCu);
+
+    if (matKhauCu != hs->getMatKhau())
+    {
+        cout << "Mat khau hien tai khong dung!" << endl;
+        pauseExecution();
+        return;
+    }
+
+    string matKhauMoi;
+    cout << "Nhap mat khau moi: ";
+    getline(cin, matKhauMoi);
+
+    if (matKhauMoi.empty())
+    {
+        cout << "Mat khau khong the de trong." << endl;
+        pauseExecution();
+        return;
+    }
+
+    LoginMap.erase({hs->getMaCCCD(), matKhauCu});
+    hs->setMatKhau(matKhauMoi);
+    LoginMap[{hs->getMaCCCD(), matKhauMoi}] = hs;
+
+    cout << "Doi mat khau thanh cong!" << endl;
+    cout << "Dang luu thay doi vao file..." << endl;
+    saveData();
+    pauseExecution();
+}
 // --- THU THU ---
 void Application::ThuThu_ThemSach(){
     printHeader("THEM SACH MOI");
