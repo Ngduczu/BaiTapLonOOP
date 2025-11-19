@@ -1166,20 +1166,14 @@ void Application::HS_SuaThongTinBanThan()
         return;
 
     printHeader("SUA THONG TIN CA NHAN");
-    string ten, ns, dc, gt;
+    string ns, dc, gt;
 
     cout << "Luu y: De trong de bo qua, giu lai gia tri cu.\n";
-    cout << "Ho Ten hien tai: " << hs->getHoTen() << "\nNhap Ho Ten moi: ";
-    getline(cin >> ws, ten);
     cout << "Ngay Sinh hien tai: " << hs->getNgayThangNamSinh() << "\nNhap Ngay Sinh moi: ";
     getline(cin, ns);
     cout << "Dia Chi hien tai: " << hs->getDiaChi() << "\nNhap Dia Chi moi: ";
     getline(cin, dc);
-    cout << "Gioi Tinh hien tai: " << hs->getGioiTinh() << "\nNhap Gioi Tinh moi: ";
-    getline(cin, gt);
-
-    hs->setThongTinCaNhan(ten, ns, dc, "", gt); 
-
+    hs->setThongTinCaNhan( "" , ns, dc, "", ""); 
     cout << "\nCap nhat thong tin thanh cong!" << endl;
     cout << "Dang luu vao file..." << endl;
     saveData();
@@ -1237,6 +1231,11 @@ void Application::HS_MuonSach(){
     }
     else
     {
+        if(!hs->DaMuonSach(idSach)) {
+            cout << "Loi: Ban da muon sach nay truoc do. Vui long khong muon lai." << endl;
+            pauseExecution();
+            return;
+        }
         Sach *sach = SachMap[idSach];
         if (sach->getSoLuong() <= 0)
         {
@@ -1244,7 +1243,7 @@ void Application::HS_MuonSach(){
         }
         else
         {
-            hs->muonSach(sach); 
+            hs->muonSach(sach);
             sach->setSoLuong(sach->getSoLuong() - 1); 
             cout << "Muon sach '" << sach->getTenTacPham() << "' thanh cong!" << endl;
             cout << "Dang luu vao file..." << endl;
@@ -1293,8 +1292,7 @@ void Application::HS_TraSach() {
 }
 
 // --- THU THU ---
-void Application::ThuThu_ThemSach()
-{
+void Application::ThuThu_ThemSach(){
     printHeader("THEM SACH MOI");
     string id, ten, tacGia, loai;
     double gia;

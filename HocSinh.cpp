@@ -14,9 +14,7 @@ private:
     string lop;
     double diemTrungBinh;
     double diemRenLuyen;
-    vector<Sach*> danhSachMuon; // Chỉ lưu trữ con trỏ
-    
-    // [UPDATE] Biến tạm để lưu ID sách khi load file, tránh xung đột I/O
+    vector<Sach*> danhSachMuon; 
     vector<string> tempIdSachMuon; 
 
 public:
@@ -43,49 +41,49 @@ public:
     }
     string getRoleType() const override{ return "HOCSINH";}
 
-    // Định nghĩa (override) các hàm I/O
     void saveData(ofstream& file) const override;
     void loadData(ifstream& file) override;
 
-    // Getters và Setters riêng của HocSinh
     string getMaHocSinh() const { return maHocSinh;}
     string getLop() const { return lop;}
     double getDiemTrungBinh() const;
     double getDiemRenLuyen() const { return diemRenLuyen; }
-    
-    // [UPDATE] Getter cho biến tạm
     vector<string> getTempIdSachMuon() const { return tempIdSachMuon; }
 
     void setDiemTrungBinh(double diem) { this->diemTrungBinh = diem;}
-    void setLop(string newLop) { this->lop = newLop;}
     void setDiemRenLuyen(double diem) { this->diemRenLuyen = diem;}
+
+    // --- [ĐÃ SỬA] Setters có kiểm tra rỗng ---
+    void setLop(string newLop) { if(!newLop.empty()) this->lop = newLop;}
+    
     void setThongTinCaNhan(string newTen, string newNgaySinh, string newDiaChi, string newEmail, string newGioiTinh){
-        if (!newTen.empty()) this->HoTen = newTen;
-        if (!newNgaySinh.empty()) this->NgayThangNamSinh = newNgaySinh;
-        if (!newDiaChi.empty()) this->DiaChi = newDiaChi;
-        if (!newEmail.empty()) this->Email = newEmail;
-        if (!newGioiTinh.empty()) this->GioiTinh = newGioiTinh;
+        // Tận dụng lại hàm của lớp cha để đỡ viết lại logic
+        Nguoi::setThongTinCoBan(newTen, newNgaySinh, newDiaChi, newEmail, newGioiTinh);
     }
-    // Chức năng thư viện
+    bool DaMuonSach(string idSach) const {
+        for (const Sach* s : danhSachMuon) {
+            if (s->getIDSach() == idSach) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     void muonSach(Sach* sach);
-    bool traSach(string idSach); // [UPDATE] Thêm hàm trả sách
+    bool traSach(string idSach);
     void xemDanhSachMuon() const;
     vector<Sach*> getDanhSachMuon() const { return danhSachMuon; }
 };
 
-// --- Triển khai các hàm của HocSinh ---
-
 HocSinh::~HocSinh() {
     danhSachMuon.clear();
 }
-
 double HocSinh::getDiemTrungBinh() const {
     return diemTrungBinh;
 }
 
 void HocSinh::muonSach(Sach* sach) {
     if(sach == nullptr) return;
-    
     for (Sach* s : danhSachMuon) {
         if (s->getIDSach() == sach->getIDSach()) {
             cout << "Ban da muon cuon sach nay roi!" << endl;
@@ -93,10 +91,8 @@ void HocSinh::muonSach(Sach* sach) {
         }
     }
     danhSachMuon.push_back(sach);
-    // cout << "Muon sach '" << sach->getTenTacPham() << "' thanh cong!" << endl; // Comment bớt cho đỡ rối khi load
 }
 
-// [UPDATE] Triển khai hàm trả sách
 bool HocSinh::traSach(string idSach) {
     for (size_t i = 0; i < danhSachMuon.size(); ++i) {
         if (danhSachMuon[i]->getIDSach() == idSach) {
@@ -122,7 +118,7 @@ void HocSinh::xemDanhSachMuon() const {
          << "| " << left << setw(15) << "The Loai" << " |" << endl;
     cout << "----------------------------------------------------------------------------------\n";
     for (Sach* sach : danhSachMuon) {
-        if(sach) { // Kiểm tra con trỏ
+        if(sach) { 
             cout << "| " << left << setw(10) << sach->getIDSach()
                  << "| " << left << setw(30) << sach->getTenTacPham()
                  << "| " << left << setw(25) << sach->getTenTacGia()
@@ -154,7 +150,6 @@ void HocSinh::loadData(ifstream& file) {
     file >> soSachMuon;
     file.ignore(numeric_limits<streamsize>::max(), '\n'); 
     
-    // [UPDATE] Sửa lỗi load dữ liệu: Đọc ID vào biến tạm
     tempIdSachMuon.clear();
     for (int i = 0; i < soSachMuon; ++i) {
         string idSachMuon;

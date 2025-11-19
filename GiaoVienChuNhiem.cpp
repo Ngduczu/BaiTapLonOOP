@@ -17,7 +17,6 @@ private:
     double luong;
 
 public:
-    // Constructor
     GiaoVienChuNhiem(string ten, string ns, string dc, string maDD, string email, string gt, string mk,
     string maGV, string lop, string boMon, string hv, int soNam, double l)
     : Nguoi(ten, ns, dc, maDD, email, gt, mk),
@@ -29,21 +28,20 @@ public:
     string getLopChuNhiem() const { return lopChuNhiem; }
     string getBoMonGiangDay() const { return boMonGiangDay; }
     string getHocVi() const { return hocVi; }
-
-    // setters
-    void setLopChuNhiem(string lop) { this->lopChuNhiem = lop; }
-    void setBoMonGiangDay(string boMon) { this->boMonGiangDay = boMon; }
-    void setHocVi(string hv) { this->hocVi = hv; }
-    void setSoNamKinhNghiem(int soNam) { this->soNamKinhNghiem = soNam; }
-    void setLuong(double l) { this->luong = l; }
     int getSoNamKinhNghiem() const { return soNamKinhNghiem; }
     double getLuong() const { return luong; }
 
-    // Override các phương thức ảo từ class Nguoi
-    string getRoleType() const override
-    {
-        return "GVCN";
-    }
+    // --- [ĐÃ SỬA] Setters có kiểm tra rỗng ---
+    void setLopChuNhiem(string lop) { if(!lop.empty()) this->lopChuNhiem = lop; }
+    void setBoMonGiangDay(string boMon) { if(!boMon.empty()) this->boMonGiangDay = boMon; }
+    void setHocVi(string hv) { if(!hv.empty()) this->hocVi = hv; }
+    
+    // Với số (int/double), Application.cpp đã xử lý việc check rỗng trước khi gọi hàm này
+    // nên ta cứ gán trực tiếp.
+    void setSoNamKinhNghiem(int soNam) { this->soNamKinhNghiem = soNam; }
+    void setLuong(double l) { this->luong = l; }
+
+    string getRoleType() const override { return "GVCN"; }
 
     void displayInfo() const override
     {
@@ -64,10 +62,9 @@ public:
         cout << "------------------------------------------------------------\n";
     }
 
-    // Override hàm lưu dữ liệu
     void saveData(ofstream &file) const override
     {
-        Nguoi::saveData(file); // Gọi hàm của lớp cha
+        Nguoi::saveData(file);
         file << maGiaoVien << endl;
         file << lopChuNhiem << endl;
         file << boMonGiangDay << endl;
@@ -76,10 +73,9 @@ public:
         file << luong << endl;
     }
 
-    // Override hàm tải dữ liệu
     void loadData(ifstream &file) override
     {
-        Nguoi::loadData(file); // Gọi hàm của lớp cha
+        Nguoi::loadData(file);
         getline(file >> ws, maGiaoVien);
         getline(file >> ws, lopChuNhiem);
         getline(file >> ws, boMonGiangDay);

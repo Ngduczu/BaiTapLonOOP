@@ -1,5 +1,5 @@
-#pragma once // Ngăn chặn việc include file này nhiều lần
-#include <bits/stdc++.h>
+#pragma once
+#include <iostream>
 #include <fstream>
 #include <string>
 #include <iomanip>
@@ -11,43 +11,41 @@ class Nguoi{
         string HoTen;
         string NgayThangNamSinh;
         string DiaChi;
-        string MaCCCD; // Sẽ được dùng làm username đăng nhập
+        string MaCCCD; 
         string Email;
         string GioiTinh;
         string MatKhau;
     public:
-        // Sửa lỗi: Bỏ 'Nguoi::' khi định nghĩa constructor bên trong class
         Nguoi(string ten, string ns, string dc, string maDD, string email, string gt, string mk)
         : HoTen(ten), NgayThangNamSinh(ns), DiaChi(dc), MaCCCD(maDD), Email(email), GioiTinh(gt), MatKhau(mk) {}
 
-        virtual ~Nguoi(){} // Destructor ảo
+        virtual ~Nguoi(){}
 
         // getter
         string getHoTen() const {return HoTen;}
         string getDiaChi() const {return DiaChi;}
         string getEmail() const {return Email;}
-        string getMaCCCD() const {return MaCCCD;} // Thêm getter này
+        string getMaCCCD() const {return MaCCCD;}
         string getMatKhau() const {return MatKhau;}
         string getNgayThangNamSinh() const {return NgayThangNamSinh;}
         string getGioiTinh() const {return GioiTinh;}
         
-        // setter
-        void setThongTinCoBan(string ten, string ns,string dc,string email,string gt){
-            this->HoTen = ten;
-            this->NgayThangNamSinh = ns;
-            this->DiaChi = dc;
-            this->Email = email;
-            this->GioiTinh = gt;
+        // --- [ĐÃ SỬA] Setter có kiểm tra rỗng ---
+        void setThongTinCoBan(string ten, string ns, string dc, string email, string gt){
+            if (!ten.empty()) this->HoTen = ten;
+            if (!ns.empty()) this->NgayThangNamSinh = ns;
+            if (!dc.empty()) this->DiaChi = dc;
+            if (!email.empty()) this->Email = email;
+            if (!gt.empty()) this->GioiTinh = gt;
         }
 
         void setMatKhau(string newmk){
-            this->MatKhau = newmk;
+            if (!newmk.empty()) this->MatKhau = newmk;
         }
-        // Các hàm ảo thuần tuý (pure virtual)
+        
         virtual string getRoleType() const = 0;
         virtual void displayInfo() const = 0;
 
-        // Các hàm ảo (virtual)
         virtual void saveData(ofstream& file) const {
             file << HoTen << endl;
             file << NgayThangNamSinh << endl;
