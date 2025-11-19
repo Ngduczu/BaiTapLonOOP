@@ -579,28 +579,36 @@ void Application::Admin_TaoTaiKhoanMoi()
     if (choice == '0')
         return;
 
+    cout << "\n--- NHAP THONG TIN TAI KHOAN MOI (Bat buoc nhap tat ca thong tin) ---\n";
     // Thông tin chung
     string ten, ns, dc, cccd, email, gt, mk, ma;
     cout << "Nhap Ma CCCD (lam username): ";
-    getline(cin, cccd);
+    getline(cin >> ws, cccd);
     if (UserMap.count(cccd))
     {
         cout << "Ma CCCD da ton tai!" << endl;
         pauseExecution();
         return;
     }
-    cout << "Nhap mat khau: ";
-    getline(cin, mk);
+    cout << "Nhap mat khau (Khong duoc de trong): ";
+    getline(cin >> ws, mk);
     cout << "Nhap ho ten: ";
-    getline(cin, ten);
-    cout << "Nhap ngay sinh (dd/mm/yyyy): ";
-    getline(cin, ns);
+    getline(cin >> ws, ten);
+    do{
+        cout << "Nhap ngay thang nam sinh (VD: NN/TT/NNNN): ";
+        getline(cin >> ws, ns);
+        if (ns.size() != 10 || ns[2] != '/' || ns[5] != '/')
+        {
+            cout << "Ngay thang nam sinh khong hop le. Vui long nhap lai." << endl;
+        }
+    } while (ns.size() != 10 || ns[2] != '/' || ns[5] != '/');
+    
     cout << "Nhap dia chi: ";
-    getline(cin, dc);
+    getline(cin >> ws, dc);
     cout << "Nhap email: ";
-    getline(cin, email);
-    cout << "Nhap gioi tinh: ";
-    getline(cin, gt);
+    getline(cin >> ws, email);
+    cout << "Nhap gioi tinh (Nam/Nu): ";
+    getline(cin >> ws, gt);
 
     Nguoi *newUser = nullptr;
 
@@ -610,9 +618,9 @@ void Application::Admin_TaoTaiKhoanMoi()
     {
         string lop;
         cout << "Nhap Ma Hoc Sinh: ";
-        getline(cin, ma);
+        getline(cin >> ws, ma);
         cout << "Nhap Lop: ";
-        getline(cin, lop);
+        getline(cin >> ws, lop);
         newUser = new HocSinh(ten, ns, dc, cccd, email, gt, mk, ma, lop, 0.0, 0.0);
         break;
     }
@@ -622,9 +630,9 @@ void Application::Admin_TaoTaiKhoanMoi()
         int soNam;
         double luong;
         cout << "Nhap Ma Giao Vien: ";
-        getline(cin, ma);
+        getline(cin >> ws, ma);
         cout << "Nhap Lop Chu Nhiem: ";
-        getline(cin, lopCN);
+        getline(cin >> ws, lopCN);
         cout << "Nhap Bo Mon Giang Day: ";
         getline(cin, boMon);
         cout << "Nhap Hoc Vi: ";
@@ -640,14 +648,14 @@ void Application::Admin_TaoTaiKhoanMoi()
     case '3':
     {
         cout << "Nhap Ma Thu Thu: ";
-        getline(cin, ma);
+        getline(cin >> ws, ma);
         newUser = new ThuThu(ten, ns, dc, cccd, email, gt, mk, ma);
         break;
     }
     case '4':
     {
         cout << "Nhap Ma Admin: ";
-        getline(cin, ma);
+        getline(cin >> ws, ma);
         newUser = new Admin(ten, ns, dc, cccd, email, gt, mk, ma);
         break;
     }
