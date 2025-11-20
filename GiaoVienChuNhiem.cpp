@@ -70,7 +70,7 @@ public:
         file << boMonGiangDay << endl;
         file << hocVi << endl;
         file << soNamKinhNghiem << endl;
-        file << luong << endl;
+        file << fixed << setprecision(2) << luong << endl;
     }
 
     void loadData(ifstream &file) override
@@ -82,5 +82,6 @@ public:
         getline(file >> ws, hocVi);
         file >> soNamKinhNghiem;
         file >> luong;
+        file.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 };

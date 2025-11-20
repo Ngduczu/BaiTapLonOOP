@@ -43,10 +43,11 @@ class Sach{
         }
 
         void loadData(ifstream& file) {
-            getline(file >> ws, IDsach); // >> ws để tiêu thụ ký tự dòng mới
+            getline(file >> ws, IDsach); 
             getline(file, TenTacGia);
             getline(file, TenSach);
             getline(file, TheLoai);
             file >> GiaBan >> SoLuong;
+            file.ignore(numeric_limits<streamsize>::max(), '\n');
         }
 };

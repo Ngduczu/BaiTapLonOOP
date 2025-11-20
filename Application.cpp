@@ -28,8 +28,8 @@ private:
 
     const string USER_FILE_IN = "Data/Input/users.txt";
     const string BOOK_FILE_IN = "Data/Input/books.txt";
-    const string USER_FILE_OUT = "Data/Output/users.txt";
-    const string BOOK_FILE_OUT = "Data/Output/books.txt";
+    const string USER_FILE_OUT = "Data/Input/users.txt";
+    const string BOOK_FILE_OUT = "Data/Input/books.txt";
 
     // Admin chức năng
     void Admin_TaoTaiKhoanMoi();
@@ -38,7 +38,9 @@ private:
     void Admin_SuaThongTinTaiKhoan();
     void Admin_DoiMatKhau(); 
     void Admin_XuatDanhSachTaiKhoanRaFile();
-
+    void Admin_NhapSachTuFile();
+    void Admin_NhapNguoiDungTuFile();
+    
     // Giao Vien chu nhiem chuc năng
     void GVCN_XemDanhSachThongTinLop() const;
     void GVCN_NhapDiemChoLopChuNhiem();
@@ -61,6 +63,7 @@ private:
     void ThuThu_XemHocSinhMuonSach() const;
     void ThuThu_XuatTatCaSachRaFile();
     void ThuThu_XuatDanhSachHocSinhMuonSachRaFile();
+    void ThuThu_NhapSachTuFile();
 
     // Hàm hỗ trợ
     void clearConsole() const
@@ -289,7 +292,7 @@ void Application::saveData() const
     }
     userFile.close();
 
-    cout << "Luu du lieu thanh cong vao thu muc Data/Output/!" << endl;
+    cout << "Luu va cap nhat du lieu thanh cong!" << endl;
 }
 
 // --- Auth Functions ---
@@ -383,6 +386,10 @@ void Application::showAdminMenu()
     cout << "4. Sua thong tin tai khoan" << endl;      
     cout << "5. Doi mat khau tai khoan" << endl;      
     cout << "6. Xuat danh sach tai khoan ra file" << endl; 
+    // --- [MỚI] Thêm menu ---
+    cout << "7. Nhap them SACH tu file" << endl;
+    cout << "8. Nhap them NGUOI DUNG tu file" << endl;
+    
     cout << "0. Dang xuat" << endl;
     cout << "\nChon chuc nang: ";
     char choice;
@@ -391,27 +398,18 @@ void Application::showAdminMenu()
 
     switch (choice)
     {
-    case '1':
-        Admin_TaoTaiKhoanMoi();
-        break;
-    case '2':
-        Admin_XemTatCaTaiKhoan();
-        break;
-    case '3':
-        Admin_XoaNguoiDung();
-        break;
-    case '4':
-        Admin_SuaThongTinTaiKhoan();
-        break;
-    case '5':
-        Admin_DoiMatKhau(); 
-        break;
-    case '6':
-        Admin_XuatDanhSachTaiKhoanRaFile();
-        break;
-    case '0':
-        logout();
-        break;
+    case '1': Admin_TaoTaiKhoanMoi(); break;
+    case '2': Admin_XemTatCaTaiKhoan(); break;
+    case '3': Admin_XoaNguoiDung(); break;
+    case '4': Admin_SuaThongTinTaiKhoan(); break;
+    case '5': Admin_DoiMatKhau(); break;
+    case '6': Admin_XuatDanhSachTaiKhoanRaFile(); break;
+    
+    // --- [MỚI] Thêm case ---
+    case '7': Admin_NhapSachTuFile(); break;
+    case '8': Admin_NhapNguoiDungTuFile(); break;
+
+    case '0': logout(); break;
     default:
         cout << "Lua chon khong hop le!" << endl;
         pauseExecution();
@@ -524,6 +522,7 @@ void Application::showThuThuMenu()
     cout << "4. Xem hoc sinh dang muon sach" << endl;
     cout << "5. Xuat file tat ca sach" << endl;
     cout << "6. Xuat file danh sach muon sach" << endl;
+    cout << "7. Nhap them SACH tu file" << endl;
     cout << "0. Dang xuat" << endl;
     cout << "\nChon chuc nang: ";
     char choice;
@@ -532,27 +531,15 @@ void Application::showThuThuMenu()
 
     switch (choice)
     {
-    case '1':
-        ThuThu_ThemSach();
-        break;
-    case '2':
-        ThuThu_XoaSach();
-        break;
-    case '3':
-        ThuThu_XemTatCaSach();
-        break;
-    case '4':
-        ThuThu_XemHocSinhMuonSach();
-        break;
-    case '5':
-        ThuThu_XuatTatCaSachRaFile();
-        break;
-    case '6':
-        ThuThu_XuatDanhSachHocSinhMuonSachRaFile();
-        break;
-    case '0':
-        logout();
-        break;
+    case '1': ThuThu_ThemSach(); break;
+    case '2': ThuThu_XoaSach(); break;
+    case '3': ThuThu_XemTatCaSach(); break;
+    case '4': ThuThu_XemHocSinhMuonSach(); break;
+    case '5': ThuThu_XuatTatCaSachRaFile(); break;
+    case '6': ThuThu_XuatDanhSachHocSinhMuonSachRaFile(); break;
+    case '7': ThuThu_NhapSachTuFile(); break;
+    
+    case '0': logout(); break;
     default:
         cout << "Lua chon khong hop le!" << endl;
         pauseExecution();
@@ -693,33 +680,98 @@ void Application::Admin_XemTatCaTaiKhoan() const
 
 void Application::Admin_XoaNguoiDung()
 {
-    printHeader("XOA TAI KHOAN");
-    string cccd;
-    cout << "Nhap Ma CCCD tai khoan can xoa: ";
-    getline(cin >> ws, cccd);
+    printHeader("XOA TAI KHOAN NGUOI DUNG");
 
+    // 1. Hiển thị danh sách tài khoản dạng bảng để dễ nhìn
+    if (UserMap.empty())
+    {
+        cout << "Khong co tai khoan nao trong he thong." << endl;
+        pauseExecution();
+        return;
+    }
+
+    cout << "DANH SACH TAI KHOAN HIEN CO:\n";
+    cout << "----------------------------------------------------------------------------------------------\n";
+    cout << "| " << left << setw(15) << "Ma CCCD"
+         << "| " << left << setw(25) << "Ho Ten"
+         << "| " << left << setw(35) << "Email"
+         << "| " << left << setw(10) << "Vai Tro" << " |\n";
+    cout << "----------------------------------------------------------------------------------------------\n";
+
+    for (auto const &[key_cccd, user] : UserMap)
+    {
+        // Đánh dấu dòng của chính mình để dễ nhận biết (Optional)
+        string role = user->getRoleType();
+        string displayName = user->getHoTen();
+        if (key_cccd == currentUser->getMaCCCD()) {
+            displayName += " (Ban)";
+        }
+
+        cout << "| " << left << setw(15) << key_cccd
+             << "| " << left << setw(25) << displayName
+             << "| " << left << setw(35) << user->getEmail()
+             << "| " << left << setw(10) << role << " |\n";
+    }
+    cout << "----------------------------------------------------------------------------------------------\n";
+
+    // 2. Nhập CCCD cần xóa
+    string cccd;
+    cout << "\nNhap Ma CCCD tai khoan can xoa (Nhan Enter de quay lai): ";
+    getline(cin, cccd);
+
+    // Nếu nhập rỗng thì thoát
+    if (cccd.empty()) return;
+
+    // 3. Kiểm tra logic: Không cho phép xóa chính mình
+    if (cccd == currentUser->getMaCCCD())
+    {
+        cout << "\n[CANH BAO] Ban khong the tu xoa tai khoan Admin dang dang nhap!" << endl;
+        pauseExecution();
+        return;
+    }
+
+    // 4. Kiểm tra tài khoản có tồn tại không
     if (!UserMap.count(cccd))
     {
-        cout << "Khong tim thay tai khoan voi Ma CCCD: " << cccd << endl;
+        cout << "Loi: Khong tim thay tai khoan voi Ma CCCD: " << cccd << endl;
     }
     else
     {
-        Nguoi *user = UserMap[cccd];
-        
-        // [UPDATE] Trả sách trước khi xóa nếu là Học sinh
-        HocSinh* hs = dynamic_cast<HocSinh*>(user);
-        if(hs) {
-            for (Sach* s : hs->getDanhSachMuon()) {
-                if(s) s->setSoLuong(s->getSoLuong() + 1); // Trả lại kho
-            }
-        }
+        // Xác nhận lần cuối
+        cout << "Ban co chac chan muon xoa tai khoan [" << UserMap[cccd]->getHoTen() << "]? (y/n): ";
+        char confirm;
+        cin >> confirm;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        LoginMap.erase({cccd, user->getMatKhau()});
-        UserMap.erase(cccd);
-        delete user;
-        cout << "Da xoa tai khoan thanh cong!" << endl;
-        cout << "Dang luu thay doi vao file..." << endl;
-        saveData(); 
+        if (confirm == 'y' || confirm == 'Y')
+        {
+            Nguoi *user = UserMap[cccd];
+
+            // Logic cũ: Trả sách nếu là học sinh trước khi xóa
+            HocSinh* hs = dynamic_cast<HocSinh*>(user);
+            if(hs) {
+                for (Sach* s : hs->getDanhSachMuon()) {
+                    if(s) s->setSoLuong(s->getSoLuong() + 1); // Trả lại kho
+                }
+            }
+
+            // Xóa khỏi map đăng nhập và map user
+            LoginMap.erase({cccd, user->getMatKhau()});
+            UserMap.erase(cccd);
+            
+            // Giải phóng bộ nhớ
+            delete user;
+            
+            cout << "Da xoa tai khoan thanh cong!" << endl;
+            
+            // Gọi hàm lưu dữ liệu (đã được sửa để lưu vào Input folder)
+            cout << "Dang cap nhat du lieu he thong..." << endl;
+            saveData(); 
+        }
+        else
+        {
+            cout << "Da huy thao tac xoa." << endl;
+        }
     }
     pauseExecution();
 }
@@ -924,6 +976,141 @@ void Application::Admin_XuatDanhSachTaiKhoanRaFile()
 
     file.close();
     cout << "Xuat file thanh cong -> " << OUTPUT_PATH << endl;
+    pauseExecution();
+}
+
+void Application::Admin_NhapSachTuFile() {
+    printHeader("NHAP SACH TU FILE");
+    string filename;
+    cout << "Nhap duong dan/ten file (VD: books_new): ";
+    getline(cin >> ws, filename);
+    string fullPath = "Data/Input/" + filename + ".txt";
+    filename = fullPath;
+    ifstream file(filename);
+    if (!file.is_open()) {
+        cout << "Loi: Khong the mo file " << filename << endl;
+        pauseExecution();
+        return;
+    }
+
+    int count;
+    if (!(file >> count)) {
+        cout << "Loi: Dinh dang file khong hop le (dong dau tien phai la so luong)." << endl;
+        pauseExecution();
+        return;
+    }
+    file.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    int successCount = 0;
+    int failCount = 0;
+
+    cout << "\nDang xu ly " << count << " cuon sach...\n";
+
+    for (int i = 0; i < count; ++i) {
+        Sach* tempSach = new Sach("", "", "", "", 0.0, 0);
+        tempSach->loadData(file);
+
+        if (tempSach->getIDSach().empty()) {
+            delete tempSach;
+            continue;
+        }
+        if (SachMap.count(tempSach->getIDSach())) {
+            cout << " -> Bo qua: ID " << tempSach->getIDSach() << " da ton tai." << endl;
+            delete tempSach;
+            failCount++;
+        } else {
+            SachMap[tempSach->getIDSach()] = tempSach;
+            successCount++;
+        }
+    }
+
+    file.close();
+    cout << "\nKet qua: Them thanh cong " << successCount << " sach. Bo qua (trung ID) " << failCount << " sach." << endl;
+    cout << "Du lieu da duoc cap nhat vao bo nho (hay chon Luu & Thoat de ghi lai file chinh)." << endl;
+    pauseExecution();
+}
+
+void Application::Admin_NhapNguoiDungTuFile() {
+    printHeader("NHAP NGUOI DUNG TU FILE");
+    string filename;
+    cout << "Nhap duong dan/ten file (VD: newusers) : ";
+    getline(cin >> ws, filename);
+    string fullPath = "Data/Input/" + filename + ".txt";
+    filename = fullPath;
+    ifstream file(filename);
+    if (!file.is_open()) {
+        cout << "Loi: Khong the mo file " << filename << endl;
+        pauseExecution();
+        return;
+    }
+
+    int count;
+    if (!(file >> count)) {
+        cout << "Loi: Dinh dang file khong hop le (dong dau tien phai la so luong)." << endl;
+        pauseExecution();
+        return;
+    }
+    file.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    int successCount = 0;
+    int failCount = 0;
+
+    map<HocSinh*, vector<string>> tempHSLinks;
+
+    cout << "\nDang xu ly " << count << " tai khoan...\n";
+
+    for (int i = 0; i < count; ++i) {
+        string role;
+        getline(file, role);
+        Nguoi* newUser = nullptr;
+        if (role == "HOCSINH") {
+            newUser = new HocSinh("", "", "", "", "", "", "", "", "", 0.0, 0.0);
+            newUser->loadData(file);
+
+            HocSinh* hs = dynamic_cast<HocSinh*>(newUser);
+            if (hs) tempHSLinks[hs] = hs->getTempIdSachMuon();
+
+        } else if (role == "GVCN") {
+            newUser = new GiaoVienChuNhiem("", "", "", "", "", "", "", "", "", "", "", 0, 0.0);
+            newUser->loadData(file);
+        } else if (role == "ADMIN") {
+            newUser = new Admin("", "", "", "", "", "", "", "");
+            newUser->loadData(file);
+        } else if (role == "THUTHU") {
+            newUser = new ThuThu("", "", "", "", "", "", "", "");
+            newUser->loadData(file);
+        }
+
+        if (newUser != nullptr && !newUser->getMaCCCD().empty()) {
+            if (UserMap.count(newUser->getMaCCCD())) {
+                cout << " -> Bo qua: CCCD " << newUser->getMaCCCD() << " (" << newUser->getHoTen() << ") da ton tai." << endl;
+                delete newUser;
+                if(role == "HOCSINH") {
+                    HocSinh* dummy = (HocSinh*)newUser;
+                    tempHSLinks.erase(dummy);
+                }
+                failCount++;
+            } else {
+                UserMap[newUser->getMaCCCD()] = newUser;
+                LoginMap[{newUser->getMaCCCD(), newUser->getMatKhau()}] = newUser;
+                successCount++;
+            }
+        } else {
+            if (newUser) delete newUser;
+        }
+    }
+    for (auto const& [hs, idList] : tempHSLinks) {
+        if (UserMap.count(hs->getMaCCCD()) && UserMap[hs->getMaCCCD()] == hs) {
+            for (const string& idSach : idList) {
+                if (SachMap.count(idSach)) {
+                    hs->muonSach(SachMap[idSach]);
+                }
+            }
+        }
+    }
+    file.close();
+    cout << "\nKet qua: Them thanh cong " << successCount << " tai khoan. Bo qua " << failCount << " tai khoan." << endl;
+    cout << "Du lieu da duoc cap nhat vao bo nho." << endl;
     pauseExecution();
 }
 
@@ -1339,6 +1526,7 @@ void Application::HS_DoiMatKhau()
     saveData();
     pauseExecution();
 }
+
 // --- THU THU ---
 void Application::ThuThu_ThemSach(){
     printHeader("THEM SACH MOI");
@@ -1537,5 +1725,60 @@ void Application::ThuThu_XuatDanhSachHocSinhMuonSachRaFile()
 
     file.close();
     cout << "Xuat file thanh cong -> Data/Output/export_borrows.txt" << endl;
+    pauseExecution();
+}
+
+void Application::ThuThu_NhapSachTuFile() {
+    printHeader("NHAP SACH TU FILE");
+    string filename;
+    cout << "Nhap duong dan/ten file (VD: newbooks) :";
+    getline(cin >> ws, filename);
+    string fullPath = "Data/Input/" + filename + ".txt";
+    filename = fullPath;
+    ifstream file(filename);
+    if (!file.is_open()) {
+        cout << "Loi: Khong the mo file " << filename << endl;
+        pauseExecution();
+        return;
+    }
+
+    int count;
+    if (!(file >> count)) {
+        cout << "Loi: Dinh dang file khong hop le (dong dau tien phai la so luong)." << endl;
+        pauseExecution();
+        return;
+    }
+    file.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    int successCount = 0;
+    int failCount = 0;
+
+    cout << "\nDang xu ly " << count << " cuon sach...\n";
+
+    for (int i = 0; i < count; ++i) {
+        Sach* tempSach = new Sach("", "", "", "", 0.0, 0);
+        tempSach->loadData(file);
+
+        if (tempSach->getIDSach().empty()) {
+            delete tempSach;
+            continue;
+        }
+
+        // Kiểm tra trùng ID trong SachMap hiện tại
+        if (SachMap.count(tempSach->getIDSach())) {
+            cout << " -> Bo qua: ID " << tempSach->getIDSach() << " da ton tai." << endl;
+            delete tempSach;
+            failCount++;
+        } else {
+            SachMap[tempSach->getIDSach()] = tempSach;
+            successCount++;
+        }
+    }
+
+    file.close();
+    cout << "\nKet qua: Them thanh cong " << successCount << " sach. Bo qua (trung ID) " << failCount << " sach." << endl;
+    cout << "Dang luu du lieu vao he thong..." << endl;
+    saveData(); 
+    
     pauseExecution();
 }

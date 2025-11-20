@@ -58,7 +58,7 @@ class Nguoi{
 
         virtual void loadData(ifstream& file) {
             getline(file >> ws, HoTen);
-            getline(file,NgayThangNamSinh);
+            getline(file, NgayThangNamSinh);
             getline(file, DiaChi);
             getline(file, MaCCCD);
             getline(file, Email);

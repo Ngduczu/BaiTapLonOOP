@@ -148,8 +148,7 @@ void HocSinh::loadData(ifstream& file) {
     file >> diemRenLuyen;
     int soSachMuon;
     file >> soSachMuon;
-    file.ignore(numeric_limits<streamsize>::max(), '\n'); 
-    
+    file.ignore(numeric_limits<streamsize>::max(), '\n');
     tempIdSachMuon.clear();
     for (int i = 0; i < soSachMuon; ++i) {
         string idSachMuon;
